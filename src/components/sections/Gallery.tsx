@@ -37,7 +37,7 @@ export default function Gallery() {
 
   return (
     <>
-      <section id="gallery" className="py-32 md:py-48 bg-ivory">
+      <section id="gallery" className="py-32 md:py-48 bg-cream">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <motion.p
             initial={{ opacity: 0 }}
@@ -88,7 +88,7 @@ export default function Gallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[70] bg-cream/98 backdrop-blur-xl flex items-center justify-center"
+            className="fixed inset-0 z-[70] bg-warm/98 backdrop-blur-xl flex items-center justify-center"
             onClick={closeLightbox}
           >
             <button

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { NAV_LINKS } from "@/lib/constants";
 import { MenuIcon, XIcon } from "@/components/icons";
 
@@ -29,19 +30,26 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-cream/95 backdrop-blur-sm"
+            ? "bg-cream/95 backdrop-blur-sm border-b border-stone/30"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            <a href="#" className="group">
-              <span className="text-[11px] tracking-[0.35em] uppercase text-espresso/70 group-hover:text-espresso transition-colors duration-500">
+            <a href="#" className="flex items-center gap-3 group">
+              <Image
+                src="/images/logo.png"
+                alt="Brentwood Boards"
+                width={36}
+                height={36}
+                className="opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+              <span className="hidden sm:block font-serif text-sm tracking-[0.15em] text-espresso/70 group-hover:text-espresso transition-colors duration-500">
                 Brentwood Boards
               </span>
             </a>
 
-            <div className="hidden md:flex items-center gap-12">
+            <div className="hidden md:flex items-center gap-10">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
@@ -51,6 +59,12 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="#contact"
+                className="text-[11px] tracking-[0.2em] uppercase text-gold hover:text-espresso transition-colors duration-500"
+              >
+                Inquire
+              </a>
             </div>
 
             <button
@@ -81,7 +95,15 @@ export default function Navbar() {
               <XIcon className="w-6 h-6" />
             </button>
 
-            <nav className="flex flex-col items-center gap-10">
+            <Image
+              src="/images/logo.png"
+              alt="Brentwood Boards"
+              width={60}
+              height={60}
+              className="opacity-60 mb-12"
+            />
+
+            <nav className="flex flex-col items-center gap-8">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -90,7 +112,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="text-[13px] tracking-[0.25em] uppercase text-espresso/60 hover:text-espresso transition-colors"
+                  className="font-serif text-xl tracking-[0.15em] text-espresso/60 hover:text-espresso transition-colors"
                 >
                   {link.label}
                 </motion.a>

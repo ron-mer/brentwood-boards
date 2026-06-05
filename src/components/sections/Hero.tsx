@@ -5,51 +5,59 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-end pb-16 md:pb-24 pt-32 bg-cream">
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
-        {/* Wordmark */}
+    <section className="min-h-screen flex flex-col justify-center pt-20 bg-cream">
+      {/* Centered wordmark + logo */}
+      <div className="flex-1 flex flex-col items-center justify-center px-8 py-16">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="mb-16 md:mb-24"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="text-center"
         >
-          <h1 className="font-serif font-light">
-            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[0.08em] text-espresso leading-none">
-              Brentwood
-            </span>
-            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[0.08em] text-espresso leading-none mt-1">
-              Boards
-            </span>
+          <Image
+            src="/images/logo.png"
+            alt="Brentwood Boards logo"
+            width={70}
+            height={70}
+            className="mx-auto mb-8 opacity-70"
+          />
+
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.1em] text-espresso">
+            Brentwood Boards
           </h1>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="text-[11px] tracking-[0.3em] uppercase text-muted mt-8 max-w-sm"
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-[11px] tracking-[0.3em] uppercase text-muted mt-6"
           >
-            Artisan grazing tables &amp; charcuterie boards, crafted with love in Los Angeles
+            Made with love in Los Angeles
           </motion.p>
         </motion.div>
-
-        {/* Hero image — treated as artwork */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-          className="relative w-full aspect-[16/9] md:aspect-[2.2/1] overflow-hidden"
-        >
-          <Image
-            src="/images/gallery/board-04.jpg"
-            alt="Vibrant artisan charcuterie spread with fresh fruits, cheeses, and handmade accompaniments"
-            fill
-            priority
-            quality={90}
-            className="object-cover"
-            sizes="100vw"
-          />
-        </motion.div>
       </div>
+
+      {/* Hero image — natural aspect ratio, edge to edge */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+        className="relative w-full"
+      >
+        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+          <div className="relative aspect-[3/2] overflow-hidden">
+            <Image
+              src="/images/hero.jpg"
+              alt="MILZCHELLA themed artisan grazing table by Brentwood Boards"
+              fill
+              priority
+              quality={90}
+              className="object-cover"
+              sizes="(max-width: 1280px) 100vw, 1200px"
+            />
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

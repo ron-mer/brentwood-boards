@@ -11,7 +11,7 @@ const fade = {
 
 export default function About() {
   return (
-    <section id="about" className="py-32 md:py-48 bg-cream">
+    <section id="about" className="py-32 md:py-48 bg-warm">
       <div className="max-w-3xl mx-auto px-8 lg:px-12">
         <motion.div {...fade}>
           <p className="text-[11px] tracking-[0.3em] uppercase text-muted mb-10">
