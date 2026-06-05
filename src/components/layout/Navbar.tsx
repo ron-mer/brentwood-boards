@@ -31,7 +31,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
             ? "bg-cream/95 backdrop-blur-sm border-b border-stone/30"
-            : "bg-transparent"
+            : "bg-gradient-to-b from-chocolate/50 to-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -42,9 +42,11 @@ export default function Navbar() {
                 alt="Brentwood Boards"
                 width={36}
                 height={36}
-                className="opacity-80 group-hover:opacity-100 transition-opacity"
+                className={`transition-opacity group-hover:opacity-100 ${scrolled ? "opacity-80" : "opacity-70 invert brightness-200"}`}
               />
-              <span className="hidden sm:block font-serif text-sm tracking-[0.15em] text-espresso/70 group-hover:text-espresso transition-colors duration-500">
+              <span className={`hidden sm:block font-serif text-sm tracking-[0.15em] transition-colors duration-500 ${
+                scrolled ? "text-espresso/70 group-hover:text-espresso" : "text-ivory/70 group-hover:text-ivory"
+              }`}>
                 Brentwood Boards
               </span>
             </a>
@@ -54,14 +56,16 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-[11px] tracking-[0.2em] uppercase text-espresso/40 hover:text-espresso transition-colors duration-500"
+                  className={`text-[11px] tracking-[0.2em] uppercase transition-colors duration-500 ${
+                    scrolled ? "text-espresso/40 hover:text-espresso" : "text-ivory/40 hover:text-ivory"
+                  }`}
                 >
                   {link.label}
                 </a>
               ))}
               <a
                 href="#contact"
-                className="text-[11px] tracking-[0.2em] uppercase text-gold hover:text-espresso transition-colors duration-500"
+                className="text-[11px] tracking-[0.2em] uppercase text-gold hover:text-gold-light transition-colors duration-500"
               >
                 Inquire
               </a>
@@ -69,7 +73,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden text-espresso/50 hover:text-espresso transition-colors"
+              className={`md:hidden transition-colors ${scrolled ? "text-espresso/50 hover:text-espresso" : "text-ivory/50 hover:text-ivory"}`}
               aria-label="Open menu"
             >
               <MenuIcon className="w-5 h-5" />
