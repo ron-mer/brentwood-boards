@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Pricing() {
   return (
-    <section className="py-32 md:py-48 bg-cream">
+    <section className="py-32 md:py-44 bg-cream">
       <div className="max-w-2xl mx-auto px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

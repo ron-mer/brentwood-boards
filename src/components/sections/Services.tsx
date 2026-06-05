@@ -8,31 +8,29 @@ const services = [
     title: "Grazing Tables",
     description: "The perfect feature for your large event. Designed to appeal to the masses.",
     image: "/images/gallery/board-03.jpg",
-    aspect: "aspect-[3/4]",
   },
   {
     title: "Charcuterie Boards",
     description: "Crafted to make a statement at any intimate gathering. Carefully curated to meet your needs.",
     image: "/images/gallery/board-06.jpg",
-    aspect: "aspect-[4/3]",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 md:py-48 bg-warm">
+    <section id="services" className="py-32 md:py-44 bg-chocolate text-ivory">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-[11px] tracking-[0.3em] uppercase text-muted mb-16"
+          className="text-[11px] tracking-[0.3em] uppercase text-gold mb-16"
         >
-          Services
+          What We Offer
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -41,7 +39,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.2 }}
             >
-              <div className={`relative ${service.aspect} overflow-hidden mb-8`}>
+              <div className="relative aspect-[4/5] overflow-hidden mb-8">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -51,10 +49,10 @@ export default function Services() {
                 />
               </div>
 
-              <h3 className="font-serif font-light text-2xl md:text-3xl tracking-wide text-espresso mb-3">
+              <h3 className="font-display text-2xl md:text-3xl tracking-wide text-ivory mb-3">
                 {service.title}
               </h3>
-              <p className="text-muted text-sm leading-relaxed max-w-sm">
+              <p className="text-ivory/50 text-sm leading-relaxed max-w-sm">
                 {service.description}
               </p>
             </motion.div>
