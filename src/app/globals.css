@@ -32,3 +32,28 @@ body {
   background: var(--color-gold);
   color: white;
 }
+
+/* Gold foil text effect */
+.gold-foil {
+  background: linear-gradient(
+    135deg,
+    #B8860B 0%,
+    #DAA520 15%,
+    #FFD700 30%,
+    #F5DEB3 45%,
+    #DAA520 55%,
+    #B8860B 70%,
+    #CD853F 85%,
+    #DAA520 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: foil-shimmer 6s ease-in-out infinite;
+}
+
+@keyframes foil-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}

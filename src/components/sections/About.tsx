@@ -12,9 +12,9 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-espresso leading-tight mb-8">
-            Grazing Tables &amp;<br />
-            Charcuterie Boards<br />
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">
+            <span className="gold-foil">Grazing Tables &amp;</span><br />
+            <span className="gold-foil">Charcuterie Boards</span><br />
             <span className="font-serif text-2xl md:text-3xl lg:text-4xl text-muted italic font-light">
               for every occasion
             </span>
