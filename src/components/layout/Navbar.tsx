@@ -22,12 +22,9 @@ export default function Navbar() {
       <nav className="sticky top-0 z-50 bg-espresso">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo + Brand */}
-            <a href="#" className="flex items-center gap-3">
-              <span className="gold-foil-logo" aria-hidden="true" />
-              <span className="gold-foil font-display text-lg tracking-[0.08em]">
-                BRENTWOOD BOARDS
-              </span>
+            {/* Brand */}
+            <a href="#" className="gold-foil font-display text-lg tracking-[0.08em]">
+              BRENTWOOD BOARDS
             </a>
 
             {/* Desktop nav */}
@@ -73,7 +70,6 @@ export default function Navbar() {
               <XIcon className="w-6 h-6" />
             </button>
 
-            <span className="gold-foil-logo !w-12 !h-12 mb-4" aria-hidden="true" />
             <p className="gold-foil font-display text-2xl tracking-[0.08em] mb-12">
               BRENTWOOD BOARDS
             </p>
