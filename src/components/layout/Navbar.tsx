@@ -7,14 +7,7 @@ import { NAV_LINKS } from "@/lib/constants";
 import { MenuIcon, XIcon } from "@/components/icons";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -27,68 +20,60 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-          scrolled
-            ? "bg-cream/95 backdrop-blur-sm border-b border-stone/30"
-            : "bg-gradient-to-b from-chocolate/50 to-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <nav className="sticky top-0 z-50 bg-cream border-b border-warm">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <a href="#" className="flex items-center gap-3 group">
+            {/* Logo + Name */}
+            <a href="#" className="flex items-center gap-3">
               <Image
                 src="/images/logo.png"
                 alt="Brentwood Boards"
-                width={36}
-                height={36}
-                className={`transition-opacity group-hover:opacity-100 ${scrolled ? "opacity-80" : "opacity-70 invert brightness-200"}`}
+                width={40}
+                height={40}
               />
-              <span className={`hidden sm:block font-serif text-sm tracking-[0.15em] transition-colors duration-500 ${
-                scrolled ? "text-espresso/70 group-hover:text-espresso" : "text-ivory/70 group-hover:text-ivory"
-              }`}>
-                Brentwood Boards
-              </span>
+              <div className="hidden sm:block">
+                <span className="font-display text-xl tracking-wide text-espresso block leading-tight">
+                  BRENTWOOD
+                </span>
+                <span className="font-display text-[11px] tracking-[0.35em] text-espresso/60 block">
+                  BOARDS
+                </span>
+              </div>
             </a>
 
-            <div className="hidden md:flex items-center gap-10">
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-8">
               {NAV_LINKS.map((link) => (
                 <a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
-                  className={`text-[11px] tracking-[0.2em] uppercase transition-colors duration-500 ${
-                    scrolled ? "text-espresso/40 hover:text-espresso" : "text-ivory/40 hover:text-ivory"
-                  }`}
+                  className="text-sm font-serif text-muted hover:text-espresso transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#contact"
-                className="text-[11px] tracking-[0.2em] uppercase text-gold hover:text-gold-light transition-colors duration-500"
-              >
-                Inquire
-              </a>
             </div>
 
+            {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className={`md:hidden transition-colors ${scrolled ? "text-espresso/50 hover:text-espresso" : "text-ivory/50 hover:text-ivory"}`}
+              className="md:hidden text-espresso/60 hover:text-espresso"
               aria-label="Open menu"
             >
-              <MenuIcon className="w-5 h-5" />
+              <MenuIcon className="w-6 h-6" />
             </button>
           </div>
         </div>
       </nav>
 
+      {/* Mobile overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[60] bg-cream flex flex-col items-center justify-center"
           >
             <button
@@ -104,19 +89,19 @@ export default function Navbar() {
               alt="Brentwood Boards"
               width={60}
               height={60}
-              className="opacity-60 mb-12"
+              className="mb-10"
             />
 
-            <nav className="flex flex-col items-center gap-8">
+            <nav className="flex flex-col items-center gap-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="font-serif text-xl tracking-[0.15em] text-espresso/60 hover:text-espresso transition-colors"
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                  className="font-serif text-xl text-espresso/70 hover:text-espresso transition-colors"
                 >
                   {link.label}
                 </motion.a>
