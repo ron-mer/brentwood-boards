@@ -11,7 +11,7 @@
   --color-soft: #A09688;
 
   /* Accent */
-  --color-gold: #C4A265;
+  --color-gold: #C6A96C;
 
   --font-display: var(--font-abril);
   --font-serif: var(--font-playfair);
@@ -33,21 +33,27 @@ body {
   color: white;
 }
 
+/* Soft gold gradient — shared base */
+:root {
+  --gold-gradient: linear-gradient(
+    135deg,
+    #A08050 0%,
+    #C6A96C 18%,
+    #D4BE8A 35%,
+    #E8D5A8 48%,
+    #C6A96C 58%,
+    #A08050 72%,
+    #B89B6A 88%,
+    #C6A96C 100%
+  );
+}
+
 /* Gold foil logo — uses the PNG as a mask over a gold gradient */
 .gold-foil-logo {
   display: inline-block;
   width: 36px;
   height: 36px;
-  background: linear-gradient(
-    135deg,
-    #B8860B 0%,
-    #DAA520 20%,
-    #FFD700 40%,
-    #F5DEB3 50%,
-    #DAA520 60%,
-    #B8860B 80%,
-    #DAA520 100%
-  );
+  background: var(--gold-gradient);
   background-size: 200% 200%;
   -webkit-mask-image: url('/images/logo.png');
   mask-image: url('/images/logo.png');
@@ -62,17 +68,7 @@ body {
 
 /* Gold foil text effect */
 .gold-foil {
-  background: linear-gradient(
-    135deg,
-    #B8860B 0%,
-    #DAA520 15%,
-    #FFD700 30%,
-    #F5DEB3 45%,
-    #DAA520 55%,
-    #B8860B 70%,
-    #CD853F 85%,
-    #DAA520 100%
-  );
+  background: var(--gold-gradient);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;

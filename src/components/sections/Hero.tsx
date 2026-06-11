@@ -9,7 +9,7 @@ export default function Hero() {
           alt="MILZCHELLA themed grazing table by Brentwood Boards"
           fill
           priority
-          quality={90}
+          quality={75}
           className="object-cover"
           sizes="100vw"
         />
