@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/lib/constants";
 import { MenuIcon, XIcon } from "@/components/icons";
+import CuttingBoardLogo from "@/components/CuttingBoardLogo";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -22,9 +23,12 @@ export default function Navbar() {
       <nav className="sticky top-0 z-50 bg-espresso">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Brand */}
-            <a href="#" className="gold-foil font-display text-lg tracking-[0.08em]">
-              BRENTWOOD BOARDS
+            {/* Logo + Brand */}
+            <a href="#" className="flex items-center gap-2">
+              <CuttingBoardLogo className="w-10 h-8 gold-foil-svg" />
+              <span className="gold-foil font-display text-lg tracking-[0.08em]">
+                BRENTWOOD BOARDS
+              </span>
             </a>
 
             {/* Desktop nav */}
@@ -70,6 +74,7 @@ export default function Navbar() {
               <XIcon className="w-6 h-6" />
             </button>
 
+            <CuttingBoardLogo className="w-16 h-12 gold-foil-svg mb-4" />
             <p className="gold-foil font-display text-2xl tracking-[0.08em] mb-12">
               BRENTWOOD BOARDS
             </p>

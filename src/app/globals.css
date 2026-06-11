@@ -48,6 +48,11 @@ body {
   );
 }
 
+/* Gold foil SVG — applies champagne color to SVG strokes/fills */
+.gold-foil-svg {
+  color: #B8A88A;
+}
+
 /* Gold foil text effect */
 .gold-foil {
   background: var(--gold-gradient);
