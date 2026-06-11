@@ -33,6 +33,33 @@ body {
   color: white;
 }
 
+/* Gold foil logo — uses the PNG as a mask over a gold gradient */
+.gold-foil-logo {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(
+    135deg,
+    #B8860B 0%,
+    #DAA520 20%,
+    #FFD700 40%,
+    #F5DEB3 50%,
+    #DAA520 60%,
+    #B8860B 80%,
+    #DAA520 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask-image: url('/images/logo.png');
+  mask-image: url('/images/logo.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  animation: foil-shimmer 6s ease-in-out infinite;
+}
+
 /* Gold foil text effect */
 .gold-foil {
   background: linear-gradient(
